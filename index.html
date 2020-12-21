@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> JavaScript Basics</title>
+</head>
+
+<body>
+    <h1>Hello World! This is the JavaScript Basics HTML page</h1>
+    <p>I'm creating this page because on Decemeber 22nd, at 11am I have a technical interview with the Oracle OCI team
+        for a UI Engineer position. I want to use this page to brush up on my JavaScript skills when it comes to
+        functions, API calls, DOM manipulation, and so much more.</p>
+
+
+    <script>
+        //Calling an outer variable
+        let nub = "Anubis";
+
+        function anubis() {
+            let message = "Hello! My name is " + nub;
+            console.log(message);
+        }
+        anubis();
+
+        //Arrays
+        let fruits = ["apple", { name: 'Bill' }, "orange", "strawberries"];
+        console.log(fruits[0]); //apple
+        console.log(fruits[1].name); //Bill
+        console.log(fruits.length); //3
+        console.log(fruits);
+
+        //Stack (add and take from the end of an array)
+        let dogs = ["Anubis", "Osiris", "Duke"];
+        console.log(dogs.pop()); //removes Duke from array and console log it
+        dogs.push("Kira"); //add Kira to the end of the array
+        //console.log(dogs.push("Kira")); is the same as finding the length of the array
+        console.log(dogs);
+
+        //Queue (add and take from the beginning of an array)
+        let fastfood = ["Burger King", "Mc Donalds", "Wendy's"];
+        console.log(fastfood.shift()); //takes first item and logs it
+        fastfood.unshift("Arby's"); //adds item to the beginning of the array
+        //console.log(fastfood.push("Arbys")); is the same as finding the length of the array
+        console.log(fastfood);
+
+        //Reverse a linked list (iterative)
+        const reverselist = head => {
+            let prev = null;
+            let next = null;
+            let current = head;
+            while (current !== null) {
+                next = current.next //we need to store the next node of current before changing
+                current.next = prev //we can now change next of current by reversing the link
+                prev = current //this step moves the previous node forward
+                current = next //this step moves the current node forward
+            }
+            return prev //new head of the list
+        };
+
+        //prev: This pointer will track the node previous to the current node and we will set it to null because a singly link list node does not have a reference to its previous node.
+        //current: This one will start at the head of the list and keep track of the node we are currently on.
+        //next: This pointer will store the next node before its reference is changed and it is initially set to null.
+
+        //The space complexity of this solution is O(1) because our approach is reversing the list in place and not using any additional space.
+
+    </script>
+</body>
+
+</html>
